@@ -1,14 +1,18 @@
 package eu.example.myplantdiary
 
+import android.content.res.Configuration
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.material.*
+import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import eu.example.myplantdiary.ui.theme.MyPlantDiaryTheme
 
@@ -26,25 +30,79 @@ class MainActivity : ComponentActivity() {
 			MyPlantDiaryTheme {
 				// A surface container using the 'background' color from the theme
 				Surface(
-					modifier = Modifier.fillMaxSize(),
+					modifier = Modifier.fillMaxWidth(),
 					color = MaterialTheme.colors.background
 				) {
-
+					SpecimenFacts(name = "Mine planter")
 				}
 			}
 		}
 	}
 }
 
-//@Composable
-//fun Greeting(name: String) {
-//	Text(text = "Hello $name!")
-//}
+@Composable
+fun SpecimenFacts(name: String) {
+	var plantName by remember { mutableStateOf("") }
+	var location by remember { mutableStateOf("") }
+	var description by remember { mutableStateOf("") }
+	var datePlanted by remember { mutableStateOf("") }
+	val context = LocalContext.current
 
-@Preview(showBackground = true)
+	Column() {
+		OutlinedTextField(
+			value = plantName,
+			onValueChange = { plantName = it },
+			label = { Text(text = stringResource(R.string.plantName)) },
+			modifier = Modifier.fillMaxWidth()
+		)
+
+		OutlinedTextField(
+			value = location,
+			onValueChange = { location = it },
+			label = { Text(text = stringResource(R.string.plantName)) },
+			modifier = Modifier.fillMaxWidth()
+		)
+
+		OutlinedTextField(
+			value = description,
+			onValueChange = { description = it },
+			label = { Text(text = stringResource(R.string.plantName)) },
+			modifier = Modifier.fillMaxWidth()
+		)
+
+		OutlinedTextField(
+			value = datePlanted,
+			onValueChange = { datePlanted = it },
+			label = { Text(text = stringResource(R.string.plantName)) },
+			modifier = Modifier.fillMaxWidth()
+		)
+
+		Button(
+			onClick = {
+				Toast.makeText(
+					context,
+					"$plantName, $location, $description, $datePlanted",
+					Toast.LENGTH_LONG
+				).show()
+			}
+		) {
+			Text(text = "Save")
+		}
+	}
+
+
+}
+
+@Preview(name = "Light Mode", showBackground = true)
+@Preview(uiMode = Configuration.UI_MODE_NIGHT_YES, showBackground = true, name = "Dark Mode")
 @Composable
 fun DefaultPreview() {
 	MyPlantDiaryTheme {
-		// Greeting("Android")
+		// A surface container using the 'background' color from the theme
+		Surface(
+			modifier = Modifier.fillMaxWidth(),
+			color = MaterialTheme.colors.background
+		) { SpecimenFacts("Android") }
+
 	}
 }
