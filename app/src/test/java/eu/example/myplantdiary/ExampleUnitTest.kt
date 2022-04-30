@@ -39,4 +39,6 @@ class ExampleUnitTest {
 		// calling toString() on a Plant object return the value of common
 		assertEquals("Eastern Redbud", plant.toString())
 	}
+
+	fun notUsed(){}
 }
