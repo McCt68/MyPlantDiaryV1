@@ -15,10 +15,20 @@ class ExampleUnitTest {
 		assertEquals(4, 2 + 2)
 	}
 
-	// my own test
+	// my own test downwards from here
 	@Test
 	fun threePlusThree_EqualsSix(){
 		assertEquals(6, 3+3)
-		assertEquals("testWord", "testWord")
+		assertEquals("testWord", "testWord") // not in video
+	}
+
+	@Test
+	fun threePlusFour_EqualsSix(){
+		assertEquals(7, 3+4)
+	}
+
+	@Test
+	fun fourPlusFour_EqualsSix(){
+		assertEquals(8, 4+4)
 	}
 }
