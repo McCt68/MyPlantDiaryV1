@@ -1,5 +1,6 @@
 package eu.example.myplantdiary
 
+import eu.example.myplantdiary.dto.Plant
 import org.junit.Test
 
 import org.junit.Assert.*
@@ -17,18 +18,25 @@ class ExampleUnitTest {
 
 	// my own test downwards from here
 	@Test
-	fun threePlusThree_EqualsSix(){
-		assertEquals(6, 3+3)
+	fun threePlusThree_EqualsSix() {
+		assertEquals(6, 3 + 3)
 		assertEquals("testWord", "testWord") // not in video
 	}
 
 	@Test
-	fun threePlusFour_EqualsSix(){
-		assertEquals(7, 3+4)
+	fun threePlusFour_EqualsSeven() {
+		assertEquals(7, 3 + 4)
 	}
 
 	@Test
-	fun fourPlusFour_EqualsSix(){
-		assertEquals(8, 4+4)
+	fun fourPlusFour_EqualsEight() {
+		assertEquals(8, 4 + 4)
+	}
+
+	@Test // video 9
+	fun confirmEasterRedbud_outputsEasternRedbud() {
+		val plant: Plant = Plant("Cercis", "Canadendis", "EasternRedbud")
+		// calling toString() on a Plant object return the value of common
+		assertEquals("Eastern Redbud", plant.toString())
 	}
 }
