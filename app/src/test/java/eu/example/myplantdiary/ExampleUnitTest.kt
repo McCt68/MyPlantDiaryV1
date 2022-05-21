@@ -46,4 +46,6 @@ class ExampleUnitTest {
 	fun fivePlusFive_EqualsTen() {
 		assertEquals(10, 5 + 5)
 	}
+
+	// Here i did not add a test that would fail video 11 - 7,32
 }

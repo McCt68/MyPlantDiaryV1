@@ -14,6 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import eu.example.myplantdiary.R.string.plantName
 import eu.example.myplantdiary.ui.theme.MyPlantDiaryTheme
 
 /*
@@ -33,7 +34,7 @@ class MainActivity : ComponentActivity() {
 					modifier = Modifier.fillMaxWidth(),
 					color = MaterialTheme.colors.background
 				) {
-					SpecimenFacts(name = "Mine planter")
+					SpecimenFacts(name = "My Plants")
 				}
 			}
 		}
@@ -58,22 +59,23 @@ fun SpecimenFacts(name: String) {
 
 		OutlinedTextField(
 			value = location,
-			onValueChange = { location = it },
-			label = { Text(text = stringResource(R.string.plantName)) },
+			onValueChange = { newLocation ->
+				location = newLocation },
+			label = { Text(text = stringResource(R.string.location)) },
 			modifier = Modifier.fillMaxWidth()
 		)
 
 		OutlinedTextField(
 			value = description,
 			onValueChange = { description = it },
-			label = { Text(text = stringResource(R.string.plantName)) },
+			label = { Text(text = stringResource(R.string.description)) },
 			modifier = Modifier.fillMaxWidth()
 		)
 
 		OutlinedTextField(
 			value = datePlanted,
 			onValueChange = { datePlanted = it },
-			label = { Text(text = stringResource(R.string.plantName)) },
+			label = { Text(text = stringResource(R.string.datePlanted)) },
 			modifier = Modifier.fillMaxWidth()
 		)
 
@@ -89,8 +91,6 @@ fun SpecimenFacts(name: String) {
 			Text(text = "Save")
 		}
 	}
-
-
 }
 
 @Preview(name = "Light Mode", showBackground = true)
