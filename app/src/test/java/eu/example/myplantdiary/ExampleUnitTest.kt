@@ -41,4 +41,9 @@ class ExampleUnitTest {
 	}
 
 	fun notUsed(){}
+
+	@Test
+	fun fivePlusFive_EqualsTen() {
+		assertEquals(10, 5 + 5)
+	}
 }
