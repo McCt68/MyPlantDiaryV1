@@ -2,6 +2,7 @@ package eu.example.myplantdiary
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import eu.example.myplantdiary.dto.Plant
+import eu.example.myplantdiary.service.PlantService
 import junit.framework.Assert.*
 import kotlinx.coroutines.test.runTest
 import org.junit.Rule
