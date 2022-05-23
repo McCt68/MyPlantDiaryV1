@@ -23,6 +23,8 @@ Will have examples of github implementation, jetpack compose, firebase and more.
 Lots of very detailed information about android.
  */
 
+// I also have code in test folder to test stuff
+
 class MainActivity : ComponentActivity() {
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
